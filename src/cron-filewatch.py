@@ -28,11 +28,12 @@ def main():
 
 def handler_wrapper(command):
     def handler(stat, mode):
-        subprocess.call('{} {} {} \'{}\''.format(
-            command,
+        args = command.split(' ')
+        args.extend([
             stat.get('dir'),
-            mode.value,
-            json.dumps(stat)))
+            str(mode.value),
+            json.dumps(stat)])
+        subprocess.call(args)
     return handler
 
 
