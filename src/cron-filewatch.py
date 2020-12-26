@@ -43,7 +43,7 @@ def parse_args():
         '--dir', '-d', type=str, required=True, 
         help='The directory to be watched for changes.')
     parser.add_argument(
-        '--recursive', '-r', default=True, action='store_true',
+        '--recursive', '-r', default=False, action='store_true',
         help='Whether the directory is watched recursively or not.')
     parser.add_argument(
         '--ignoreinit', default=False, action='store_true',
