@@ -19,7 +19,7 @@ def main():
     args = parse_args()
     stat_file = path.join(args.dir, STAT_FILE_NAME)
     s_before = load_stats(stat_file)
-    s_now = lsdir(args.dir)
+    s_now = lsdir(args.dir, args.recursive)
     if not (args.ignoreinit and len(s_before) == 0):
         diff_stats(s_before, s_now, handler_wrapper(args.command))
     save_stats(stat_file, s_now)
